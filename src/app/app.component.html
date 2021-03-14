@@ -1,0 +1,19 @@
+<app-sidemenu
+  [sidenavTemplateRef]="navContent"
+  [direction]="'left'"
+  [navWidth]="280"
+  [duration]="0.5"
+></app-sidemenu>
+<div class="main-container">
+  <app-header></app-header>
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</div>
+
+<ng-template #navContent> Side Nav Bar Content Here </ng-template>
+<div class="main-container">
+  <section>
+    <router-outlet></router-outlet>
+  </section>
+</div>

@@ -1,0 +1,43 @@
+<div class="title">
+  <span>L</span>
+  <span>A</span>
+  <span>U</span>
+  <span>N</span>
+  <span>C</span>
+  <span>H</span>
+  <span class="letter">E</span>
+  <span>S</span>
+</div>
+
+<div class="content">
+  <form (ngSubmit)="submit()" [formGroup]="form">
+    <div class="form-group field">
+      <input
+        type="number"
+        class="form-field"
+        placeholder="Launch No"
+        formControlName="idNo"
+      />
+      <label for="name" class="form-label">Launch No</label>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn color-primary">Go!</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="launchData" class="flight-details">
+  <div class="details">
+    <div class="mission-name">Mission Name: {{ launchData.mission_name }}</div>
+    <div class="year">Year: {{ launchData.launch_year }}</div>
+    <div class="date">
+      Date & Time:
+      {{ launchData.launch_date_utc | date: 'EEEE, MMMM d, y, h:mm:ss a zzzz' }}
+    </div>
+    <div class="rocket">Rocket Name: {{ launchData.rocket.rocket_name }}</div>
+    <div class="desc" *ngIf="launchData.details">
+      Details: {{ launchData.details }}
+    </div>
+  </div>
+</div>

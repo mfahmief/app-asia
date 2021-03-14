@@ -1,0 +1,38 @@
+<div
+  class="side-nav-bar"
+  [ngClass]="{ 'side-nav-bar-collapsed': !(showSideNav | async) }"
+>
+  <div
+    class="side-nav-bar-overlay"
+    [ngStyle]="{
+      transition:
+        'background-color ' + duration + 's, visibility ' + duration + 's'
+    }"
+    [ngClass]="{ 'side-nav-bar-overlay-collapsed': !(showSideNav | async) }"
+    (click)="onSidebarClose()"
+  ></div>
+
+  <div
+    class="side-nav-bar-menu-container"
+    [ngStyle]="getSideNavBarStyle(showSideNav | async)"
+  >
+    <div>
+      <span class="material-icons side-nav-bar-close" (click)="onSidebarClose()"
+        >clear</span
+      >
+    </div>
+
+    <div class="side-nav-bar-content-container">
+      <div class="side-nav-bar-content">
+        <ul class="side-nav-bar-menu">
+          <li
+            *ngFor="let navItem of navItems"
+            (click)="onNavigationSelection(navItem)"
+          >
+            {{ navItem.label }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
